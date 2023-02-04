@@ -2,14 +2,14 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShop2"
+          gitdir: "/tmp/addressbook2"
   tasks:
           - name: "install maven"
             yum:
                     name: maven
           - name: "clone the addressbook project"
             git:
-                    repo: 'https://github.com/elmonje/BookzyBookShop.git'
+                    repo: 'https://github.com/upshiftnow/addressbook'
                     dest: "{{ gitdir }}"
                     version: "main"   
           - name: "compile the addressbook project"
