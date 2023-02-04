@@ -4,9 +4,6 @@
   vars:
           gitdir: "/tmp/addressbook-project-1"
   tasks:
-          - name: "install maven"
-            apt:
-                    name: maven
           - name: "clone the addressbook project"
             git:
                     repo: 'https://github.com/elmonje/BookzyBookShop'
