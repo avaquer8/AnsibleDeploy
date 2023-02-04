@@ -6,7 +6,7 @@
   tasks:
           - name: "clone the addressbook project"
             git:
-                    repo: 'https://github.com/elmonje/BookzyBookShop.git'
+                    repo: 'https://github.com/elmonje/BookzyBookShop'
                     dest: "{{ gitdir }}"
                     version: "main"
           - name: "compile the addressbook project"
