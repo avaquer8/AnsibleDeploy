@@ -21,7 +21,7 @@
           - name: "deploy WAR file"
             copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
-                    dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
+                    dest: "/opt/tomcat/webapps/BookzyBookShop.war"
             notify: "restart tomcat service post deployment"
   handlers:
           - name: "enable tomcat service"
