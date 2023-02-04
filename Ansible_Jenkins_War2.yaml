@@ -11,5 +11,5 @@
                     version: "main"   
           - name: "compile the addressbook project"
             command:
-                    chdir: "{{ gitdir }}"
+                    chdir: "/tmp/BookzyBookShop2/src"
                     cmd: "mvn package"
