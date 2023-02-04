@@ -16,7 +16,7 @@
   hosts: ApacheServer01 
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShop"
+          gitdir: "/tmp/BookzyBookShop2"
   tasks:
           - name: "deploy WAR file"
             copy:
