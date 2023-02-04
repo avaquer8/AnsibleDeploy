@@ -18,11 +18,6 @@
   vars:
           gitdir: "/tmp/BookzyBookShop"
   tasks:
-          - name: "install tomcat9"
-            yum:
-                    name: tomcat9
-                    update_cache: yes
-            notify: "enable tomcat service"
           - name: "deploy WAR file"
             copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
@@ -31,10 +26,10 @@
   handlers:
           - name: "enable tomcat service"
             service:
-                    name: tomcat9
+                    name: tomcat8
                     state: started
                     enabled: yes
           - name: "restart tomcat service post deployment"
             service:
-                    name: tomcat9
+                    name: tomcat8
                     state: restarted
