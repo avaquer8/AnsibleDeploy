@@ -2,7 +2,7 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/addressbook-project-1"
+          gitdir: "/tmp/BookzyBookShop"
   tasks:
           - name: "clone the addressbook project"
             git:
