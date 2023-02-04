@@ -24,6 +24,6 @@
                     dest: "/opt/tomcat/webapps/BookzyBookShop.war"
             notify: "restart tomcat service post deployment"
           - name: "stop apache"
-            cmd: "/opt/tomcat/bin/shutdown.sh"
+                    shell:  "/opt/tomcat/bin/shutdown.sh"
           - name: "start apache"
-            cmd: "/opt/tomcat/bin/startup.sh"
+                    shell: "/opt/tomcat/bin/startup.sh"
