@@ -2,10 +2,10 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShop"
+          gitdir: "/tmp/BookzyBookShop2"
   tasks:
           - name: "clone the addressbook project"
             git:
-                    repo: 'https://github.com/elmonje/BookzyBookShop'
+                    repo: 'https://github.com/elmonje/BookzyBookShop.git'
                     dest: "{{ gitdir }}"
                     version: "main"               
