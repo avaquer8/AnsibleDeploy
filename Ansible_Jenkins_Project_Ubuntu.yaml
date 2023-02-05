@@ -33,11 +33,6 @@
                     dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
             notify: "Reseteando El Servicio Tomcat despues del despliegue"
   handlers:
-          - name: "enable tomcat service"
-            service:
-                    name: tomcat9
-                    state: started
-                    enabled: yes
           - name: "compile the addressbook project2"            
             shell: "/opt/apache-maven-3.8.7/bin/mvn -vesion > /tmp/datos1.txt"
             register: "output"
@@ -46,7 +41,12 @@
             register: "output"            
           - name: "compile the addressbook project4"            
             shell: "mvn -version > /tmp/datos3.txt"            
-            register: "output"                    
+            register: "output"        
+          - name: "enable tomcat service"
+            service:
+                    name: tomcat9
+                    state: started
+                    enabled: yes
           - name: "restart tomcat service post deployment"
             service:
                     name: tomcat9
