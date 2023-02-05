@@ -11,7 +11,7 @@
             git:
                     repo: 'https://github.com/upshiftnow/addressbook.git'
                     dest: "{{ gitdir }}"
-                    version: "main"
+                    version: "master"
                     accept_hostkey: yes
                     force: yes                    
           - name: "compile the addressbook project"
