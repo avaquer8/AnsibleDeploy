@@ -26,8 +26,11 @@
           - name: "stop apache"
             shell: "/opt/tomcat/bin/shutdown.sh"
 
-          - name: ==> sleep 3s
-            command: sleep 3s
+          - name: ==> sleep 5s
+            command: sleep 5s
      
           - name: "start apache"
             shell: "/opt/tomcat/bin/startup.sh"
+
+          - name: ==> sleep 5s
+            command: sleep 5s
