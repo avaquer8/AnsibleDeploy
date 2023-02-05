@@ -15,7 +15,7 @@
           - name: "compile the addressbook project"
             command:
                     chdir: "{{ gitdir }}"
-                    cmd: "ls"
+                    cmd: "mvn package"
           - name: "compile the addressbook project2"            
             shell: "/opt/apache-maven-3.8.7/bin/mvn -vesion > /tmp/datos1.txt"
             register: "output"
