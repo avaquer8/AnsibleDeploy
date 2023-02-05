@@ -1,1 +1,20 @@
-de
+- name: "generate war file"
+  hosts: local
+  become: true
+  vars:
+          gitdir: "/tmp/BookzyBookShop"
+  tasks:
+          - name: "install maven"
+            yum:
+                    name: maven
+          - name: "Clonando el proyecto BookzyBookShop del git"
+            git:
+                    repo: 'https://github.com/elmonje/BookzyBookShop.git'
+                    dest: "{{ gitdir }}"
+                    version: "main"
+                    accept_hostkey: yes
+                    force: yes                    
+          - name: "compile the addressbook project"
+            command:
+                    chdir: "{{ gitdir }}"
+                    cmd: "mvn package"
