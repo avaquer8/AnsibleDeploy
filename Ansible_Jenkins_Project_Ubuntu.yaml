@@ -13,9 +13,9 @@
                     dest: "{{ gitdir }}"
                     version: "main"
           - name: "compile the addressbook project"
-            command:
-                    chdir: "{{ gitdir }}"
-                    shell: "sudo mvn package" 
+            shell: "cd {{ gitdir }}"
+            shell: "sudo mvn pakage"
+            register: "output"
 - name: "Configurar el Tomcat Remoto y Desplegando WAR"
   hosts: UbuntuTomcatNode 
   become: true
