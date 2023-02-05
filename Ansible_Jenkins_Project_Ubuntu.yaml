@@ -2,7 +2,7 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF11"
+          gitdir: "/tmp/BookzyBookShopF12"
   tasks:
           - name: "install maven"
             yum:
@@ -20,19 +20,13 @@
   hosts: UbuntuTomcatNode 
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF11"
+          gitdir: "/tmp/BookzyBookShopF12"
   tasks:
           - name: "Instalando Tomcat"
             apt:
                     name: tomcat9
                     update_cache: yes
             notify: "enable tomcat service"
-          - name: "compile the addressbook project3"            
-            shell: "whoami > /tmp/datos2.txt"
-            register: "output"            
-          - name: "compile the addressbook project4"            
-            shell: "rm /var/lib/tomcat9/webapps/BookzyBookShop.war"            
-            register: "output"
           - name: "Desplegando el War"
             copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
