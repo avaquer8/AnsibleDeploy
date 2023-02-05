@@ -2,14 +2,14 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShop"
+          gitdir: "/tmp/addressbook"
   tasks:
           - name: "install maven"
             apt:
                     name: maven
           - name: "clone the addressbook project"
             git:
-                    repo: 'https://github.com/elmonje/BookzyBookShop.git'
+                    repo: 'https://github.com/upshiftnow/addressbook.git'
                     dest: "{{ gitdir }}"
                     version: "main"
           - name: "compile the addressbook project"
@@ -20,7 +20,7 @@
   hosts: ApacheServer01 
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShop"
+          gitdir: "/tmp/addressbook"
   tasks:
           - name: "install tomcat9"
             apt:
@@ -29,10 +29,9 @@
             notify: "enable tomcat service"
           - name: "deploy WAR file"
             copy:
-                    src: "{{ gitdir }}/target/BookzyBookShop.war"
-                    dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
+                    src: "{{ gitdir }}/target/addressbook.war"
+                    dest: "/var/lib/tomcat9/webapps/addressbook.war"
             notify: "restart tomcat service post deployment"
-      
  handlers:
           - name: "enable tomcat service"
             service:
