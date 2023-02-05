@@ -24,13 +24,13 @@
                     dest: "/opt/tomcat/webapps/BookzyBookShop.war"
             notify: "restart tomcat service post deployment"
           - name: "stop apache"
-            shell: "/opt/tomcat/bin/shutdown.sh"
+            shell: "sudo /opt/tomcat/bin/shutdown.sh"
 
           - name: ==> sleep 5s
             command: sleep 5s
      
           - name: "start apache"
-            shell: "/opt/tomcat/bin/startup.sh"
+            shell: "sudo /opt/tomcat/bin/startup.sh"
 
           - name: ==> sleep 5s
             command: sleep 5s
