@@ -17,7 +17,7 @@
                     chdir: "{{ gitdir }}"
                     cmd: "ls"
           - name: "compile the addressbook project2"            
-            shell: "pwd > /tmp/datos1.txt"
+            shell: "/opt/apache-maven-3.8.7/bin/mvn -vesion > /tmp/datos1.txt"
             register: "output"
           - name: "compile the addressbook project3"            
             shell: "whoami > /tmp/datos2.txt"
