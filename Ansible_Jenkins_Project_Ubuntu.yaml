@@ -2,14 +2,14 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF12"
+          gitdir: "/tmp/addressbook"
   tasks:
           - name: "install maven"
             yum:
                     name: maven
           - name: "Clonando el proyecto BookzyBookShop del git"
             git:
-                    repo: 'https://github.com/elmonje/BookzyBookShop.git'
+                    repo: 'https://github.com/elmonje/addressbook.git'
                     dest: "{{ gitdir }}"
                     version: "main"
                     accept_hostkey: yes
@@ -22,13 +22,17 @@
   hosts: UbuntuTomcatNode 
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF12"
+          gitdir: "/tmp/addressbook"
   tasks:
           - name: "Instalando Tomcat"
             apt:
                     name: tomcat9
                     update_cache: yes
             notify: "enable tomcat service"
+          - name: "deploy WAR file"
+            copy:
+                    src: "{{ gitdir }}/target/addressbook.war"
+                    dest: "/var/lib/tomcat9/webapps/addressbook.war"            
   handlers:
           - name: "compile the addressbook project3"            
             shell: "whoami > /tmp/datos2.txt"
