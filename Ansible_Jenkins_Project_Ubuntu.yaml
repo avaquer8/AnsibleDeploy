@@ -12,17 +12,17 @@
                     repo: 'https://github.com/elmonje/BookzyBookShop.git'
                     dest: "{{ gitdir }}"
                     version: "main"
-          - name: "compile the addressbook project1"
-            shell: "cd {{ gitdir }}" 
-            register: "output"    
+          - name: "compile the addressbook project"
+            command:
+                    chdir: "{{ gitdir }}" 
           - name: "compile the addressbook project2"            
-            shell: "pwd >> /tmp/datos1.txt"
+            shell: "pwd > /tmp/datos1.txt"
             register: "output"
           - name: "compile the addressbook project3"            
-            shell: "whoami >> /tmp/datos2.txt"
+            shell: "whoami > /tmp/datos2.txt"
             register: "output"            
           - name: "compile the addressbook project4"            
-            shell: "mvn -version >> /tmp/datos3.txt"            
+            shell: "mvn -version > /tmp/datos3.txt"            
             register: "output"
 - name: "Configurar el Tomcat Remoto y Desplegando WAR"
   hosts: UbuntuTomcatNode 
