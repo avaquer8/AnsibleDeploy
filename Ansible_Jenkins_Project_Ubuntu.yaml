@@ -15,7 +15,7 @@
           - name: "compile the addressbook project"
             command:
                     chdir: "{{ gitdir }}"
-                    cmd: "mvn package"                    
+                    cmd: "sudo mvn package"                    
 - name: "Configurar el Tomcat Remoto y Desplegando WAR"
   hosts: UbuntuTomcatNode 
   become: true
