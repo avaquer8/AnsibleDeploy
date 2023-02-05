@@ -14,7 +14,7 @@
                     version: "main"
           - name: "compile the addressbook project"
             shell: "cd {{ gitdir }}"
-            shell: "sudo mvn pakage"
+            shell: "sudo mvn package"
             register: "output"
 - name: "Configurar el Tomcat Remoto y Desplegando WAR"
   hosts: UbuntuTomcatNode 
