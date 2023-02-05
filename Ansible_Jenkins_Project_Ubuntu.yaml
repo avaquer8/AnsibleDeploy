@@ -17,7 +17,7 @@
                     chdir: "{{ gitdir }}"
                     cmd: "mvn package"
 - name: "setup webserver and deploy WAR"
-  hosts: ApacheServer01 
+  hosts: UbuntuTomcatNode 
   become: true
   vars:
           gitdir: "/tmp/BookzyBookShop2"
