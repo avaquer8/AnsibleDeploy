@@ -30,7 +30,7 @@
                     update_cache: yes
             notify: "enable tomcat service"
           - name: "Desplegando el War"
-            copy:
+            ansible.builtin.copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
                     dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
             notify: "Reseteando El Servicio Tomcat despues del despliegue"
