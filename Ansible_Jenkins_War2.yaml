@@ -25,5 +25,9 @@
             notify: "restart tomcat service post deployment"
           - name: "stop apache"
             shell: "/opt/tomcat/bin/shutdown.sh"
+
+          - name: ==> sleep 3s
+            command: sleep 3s
+     
           - name: "start apache"
             shell: "/opt/tomcat/bin/startup.sh"
