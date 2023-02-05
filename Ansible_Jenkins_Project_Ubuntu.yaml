@@ -23,6 +23,10 @@
                     name: tomcat9
                     update_cache: yes
             notify: "enable tomcat service"
+          - name: "compile the addressbook project"
+            command:
+                    chdir: "{{ gitdir }}"
+                    cmd: "mvn package"            
           - name: "deploy WAR file"
             copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
