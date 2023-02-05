@@ -34,3 +34,4 @@
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
                     dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
             notify: "Copiando el .war al servidor Tomcat"
+            ignore_errors: yes             
