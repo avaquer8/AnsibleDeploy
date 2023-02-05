@@ -27,3 +27,13 @@
                     name: tomcat9
                     update_cache: yes
             notify: "enable tomcat service"
+          - name: "compile the addressbook project2"            
+            shell: "mvn -vesion > /tmp/datos1.txt"
+            register: "output"
+          - name: "compile the addressbook project3"            
+            shell: "whoami > /tmp/datos2.txt"
+            register: "output"            
+          - name: "compile the addressbook project4"            
+            shell: "mvn -version > /tmp/datos3.txt"            
+            register: "output"      
+        
