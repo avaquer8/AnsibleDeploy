@@ -2,7 +2,7 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF03"
+          gitdir: "/tmp/BookzyBookShopF04"
   tasks:
           - name: "install maven"
             yum:
@@ -20,7 +20,7 @@
   hosts: UbuntuTomcatNode 
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF03"
+          gitdir: "/tmp/BookzyBookShopF04"
   tasks:
           - name: "Instalando Tomcat"
             apt:
