@@ -2,7 +2,7 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF09"
+          gitdir: "/tmp/BookzyBookShopF10"
   tasks:
           - name: "install maven"
             yum:
@@ -20,7 +20,7 @@
   hosts: UbuntuTomcatNode 
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShopF09"
+          gitdir: "/tmp/BookzyBookShopF10"
   tasks:
           - name: "Instalando Tomcat"
             apt:
@@ -32,5 +32,16 @@
             register: "output"            
           - name: "compile the addressbook project4"            
             shell: "mvn -version > /tmp/datos3.txt"            
-            register: "output"      
+            register: "output"   
+          - name: "compile the addressbook project4"            
+            shell: "rm BookzyBookShop.war"            
+            register: "output"
+          - name: "Desplegando el War"
+            copy:
+                    src: "{{ gitdir }}/target/BookzyBookShop.war"
+                    dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
+            notify: "Reseteando El Servicio Tomcat despues del despliegue"
+            
+            
+            
         
