@@ -2,14 +2,14 @@
   hosts: local
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShop2"
+          gitdir: "/tmp/Park-Web"
   tasks:
           - name: "install maven"
             yum:
                     name: maven
           - name: "Clonando el proyecto BookzyBookShop del git"
             git:
-                    repo: 'https://github.com/elmonje/BookzyBookShop.git'
+                    repo: 'https://github.com/storor/Park-Web.git'
                     dest: "{{ gitdir }}"
                     version: "main"
           - name: "compile the addressbook project"
@@ -20,7 +20,7 @@
   hosts: UbuntuTomcatNode 
   become: true
   vars:
-          gitdir: "/tmp/BookzyBookShop2"
+          gitdir: "/tmp/Park-Web"
   tasks:
           - name: "Instalando Tomcat"
             apt:
