@@ -9,7 +9,7 @@
                     name: maven
           - name: "Clonando el proyecto BookzyBookShop del git"
             git:
-                    repo: 'https://github.com/elmonje/addressbook.git'
+                    repo: 'https://github.com/upshiftnow/addressbook.git'
                     dest: "{{ gitdir }}"
                     version: "main"
                     accept_hostkey: yes
