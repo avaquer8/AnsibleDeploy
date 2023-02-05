@@ -18,7 +18,7 @@
   vars:
           gitdir: "/tmp/BookzyBookShop2"
   tasks:
-            - name: "enable tomcat service"
+          - name: "enable tomcat service"
             service:
                     name: httpd
                     state: started
@@ -33,6 +33,7 @@
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
                     dest: "/opt/tomcat/webapps/BookzyBookShop.war"
             notify: "restart tomcat service post deployment"
+
           - name: "stop apache"
             shell: "sudo /opt/tomcat/bin/shutdown.sh"
 
