@@ -12,6 +12,8 @@
                     repo: 'https://github.com/elmonje/BookzyBookShop.git'
                     dest: "{{ gitdir }}"
                     version: "main"
+                    accept_hostkey: yes
+                    force: yes                    
           - name: "compile the addressbook project"
             command:
                     chdir: "{{ gitdir }}"
