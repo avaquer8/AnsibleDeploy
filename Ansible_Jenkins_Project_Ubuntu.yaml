@@ -32,7 +32,3 @@
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
                     dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
             notify: "Reseteando El Servicio Tomcat despues del despliegue"
-            
-            
-            
-        
