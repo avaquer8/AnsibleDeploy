@@ -7,31 +7,31 @@
           - name: "install maven"
             yum:
                     name: maven
-          - name: "clone the addressbook project"
+          - name: "Clonando el proyecto BookzyBookShop del git"
             git:
                     repo: 'https://github.com/elmonje/BookzyBookShop.git'
                     dest: "{{ gitdir }}"
                     version: "main"
-- name: "setup webserver and deploy WAR"
+- name: "Configurar el Tomcat Remoto y Desplegando WAR"
   hosts: UbuntuTomcatNode 
   become: true
   vars:
           gitdir: "/tmp/BookzyBookShop2"
   tasks:
-          - name: "install tomcat9"
+          - name: "Instalando Tomcat"
             apt:
                     name: tomcat9
                     update_cache: yes
             notify: "enable tomcat service"
-          - name: "compile the addressbook project"
+          - name: "Compilando Proyecto y Generando el War"
             command:
                     chdir: "{{ gitdir }}"
                     cmd: "mvn package"            
-          - name: "deploy WAR file"
+          - name: "Desplegando el War"
             copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
                     dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
-            notify: "restart tomcat service post deployment"
+            notify: "Reseteando El Servicio Toncat despues del despiege"
   handlers:
           - name: "enable tomcat service"
             service:
