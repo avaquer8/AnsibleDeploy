@@ -14,7 +14,8 @@
                     version: "main"
           - name: "compile the addressbook project"
             command:
-                    chdir: "{{ gitdir }}" 
+                    chdir: "{{ gitdir }}"
+                    cmd: "ls"
           - name: "compile the addressbook project2"            
             shell: "pwd > /tmp/datos1.txt"
             register: "output"
