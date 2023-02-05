@@ -12,10 +12,6 @@
                     repo: 'https://github.com/elmonje/BookzyBookShop.git'
                     dest: "{{ gitdir }}"
                     version: "main"
-          - name: "compile the addressbook project"
-            command:
-                    chdir: "{{ gitdir }}"
-                    cmd: "mvn package"
 - name: "setup webserver and deploy WAR"
   hosts: UbuntuTomcatNode 
   become: true
