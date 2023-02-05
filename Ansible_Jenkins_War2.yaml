@@ -18,6 +18,16 @@
   vars:
           gitdir: "/tmp/BookzyBookShop2"
   tasks:
+            - name: "enable tomcat service"
+            service:
+                    name: httpd
+                    state: started
+                    enabled: yes
+          - name: "restart tomcat service post deployment"
+            service:
+                    name: httpd
+                    state: restarted
+  
           - name: "deploy WAR file"
             copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
