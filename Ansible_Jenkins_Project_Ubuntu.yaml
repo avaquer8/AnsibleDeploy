@@ -16,15 +16,6 @@
             command:
                     chdir: "{{ gitdir }}"
                     cmd: "mvn package"
-          - name: "compile the addressbook project2"            
-            shell: "/opt/apache-maven-3.8.7/bin/mvn -vesion > /tmp/datos1.txt"
-            register: "output"
-          - name: "compile the addressbook project3"            
-            shell: "whoami > /tmp/datos2.txt"
-            register: "output"            
-          - name: "compile the addressbook project4"            
-            shell: "mvn -version > /tmp/datos3.txt"            
-            register: "output"
 - name: "Configurar el Tomcat Remoto y Desplegando WAR"
   hosts: UbuntuTomcatNode 
   become: true
@@ -40,7 +31,7 @@
             copy:
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
                     dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
-            notify: "Reseteando El Servicio Toncat despues del despiege"
+            notify: "Reseteando El Servicio Tomcat despues del despiege"
   handlers:
           - name: "enable tomcat service"
             service:
