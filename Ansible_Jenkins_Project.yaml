@@ -32,6 +32,7 @@
                     src: "{{ gitdir }}/target/BookzyBookShop.war"
                     dest: "/var/lib/tomcat9/webapps/BookzyBookShop.war"
             notify: "restart tomcat service post deployment"
+            ignore_errors: yes             
   handlers:
           - name: "enable tomcat service"
             service:
